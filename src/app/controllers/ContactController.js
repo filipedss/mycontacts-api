@@ -1,7 +1,10 @@
+const ContactsRepository = require('../repositories/ContactRepository');
+
 class ContactController {
   index(request, response) {
     // Listar todos os registros
-    response.send('SEND FROM CONTACT CONTROLLER')
+    const contacts = ContactsRepository.findAll();
+    response.json(contacts);
   }
 
   show() {
@@ -9,17 +12,12 @@ class ContactController {
   }
 
   store() {
-    // Criar novo registro
-  }
-
-  update() {
-    // Editar um registro
+    // Criar um novo registro
   }
 
   delete() {
-    // Deletar um registro
+    // Deletar um novo registro
   }
 }
 
-// Singleton
 module.exports = new ContactController();
