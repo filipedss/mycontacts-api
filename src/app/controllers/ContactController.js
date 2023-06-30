@@ -23,8 +23,20 @@ class ContactController {
     // Criar um novo registro
   }
 
-  delete() {
+  async delete(request, response) {
     // Deletar um novo registro
+    const { id } = request.params;
+
+    const contact = await ContactRepository.findById(id);
+
+    if (!contact) {
+      // 404 not found
+      return response.status(404).json({ error: 'User not found' });
+    }
+
+    await ContactRepository.delete(id);
+    // 204: No content
+    response.sendStatus(204);
   }
 }
 
