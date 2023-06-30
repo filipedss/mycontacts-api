@@ -22,6 +22,12 @@ class ContactRepository {
       resolve(contacts);
     });
   }
+
+  findById(id) {
+    return new Promise((resolve) => {
+      resolve(contacts.find((contact) => contact.id === id));
+    });
+  }
 }
 
 module.exports = new ContactRepository();
