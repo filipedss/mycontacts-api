@@ -1,9 +1,9 @@
-const ContactsRepository = require('../repositories/ContactRepository');
+const ContactRepository = require('../repositories/ContactRepository');
 
 class ContactController {
   async index(request, response) {
     // Listar todos os registros
-    const contacts = await ContactsRepository.findAll();
+    const contacts = await ContactRepository.findAll();
     response.json(contacts);
   }
 
@@ -16,6 +16,7 @@ class ContactController {
       // 404 not found
       return response.status(404).json({ error: 'user not found' });
     }
+    response.json(contact);
   }
 
   store() {
