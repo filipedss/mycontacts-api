@@ -19,9 +19,23 @@ class ContactController {
     response.json(contact);
   }
 
-  store(request, response) {
+  async store(request, response) {
     // Criar um novo registro
-    response.send('Its working');
+    const {
+      name, email, phone, category_id
+    } = request.body;
+    // Check if contact already exists
+    const contactExists = await ContactRepository.findEmail(email);
+
+    if (contactExists) {
+      return response.status(400).json({ error: 'This e-mail is already been taken' });
+    }
+
+    const contact = await ContactRepository.create({
+      name, email, phone, category_id,
+    });
+
+    response.json(contact);
   }
 
   async delete(request, response) {
