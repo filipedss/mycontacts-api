@@ -19,8 +19,9 @@ class ContactController {
     response.json(contact);
   }
 
-  store() {
+  store(request, response) {
     // Criar um novo registro
+    response.send('Its working');
   }
 
   async delete(request, response) {
