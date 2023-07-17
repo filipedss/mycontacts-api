@@ -3,7 +3,7 @@ const db = require('../../database');
 class CategoryRepository {
   async findAll() {
     const rows = await db.query(`SELECT *
-    FROM categories order BY id`);
+    FROM categories order BY name`);
     return rows;
   }
 
