@@ -11,10 +11,10 @@ MyContacts API is a simple and efficient RESTful API that serves as a contact ma
 API Endpoints:
 
 - GET /contacts: Retrieve a list of all contacts.
-- GET /contacts/:id: Retrieve a specific contact by its ID.
+- GET /contacts/:id Retrieve a specific contact by its ID.
 - POST /contacts: Create a new contact.
-- PUT /contacts/:id: Update the details of a contact.
-- DELETE /contacts/:id: Delete a contact from the system.
+- PUT '/contacts/:id Update the details of a contact.
+- DELETE /contacts/:id Delete a contact from the system.
 
 Request and Response Examples:
 ```sh
